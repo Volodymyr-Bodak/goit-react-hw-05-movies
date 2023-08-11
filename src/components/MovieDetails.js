@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { useParams, Link } from 'react-router-dom';
 
-import Cast from './Cast';
+
 
 function MovieDetails() {
   const { movieId } = useParams();
