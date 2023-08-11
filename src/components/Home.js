@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
-    axios.get(`/trending/get-trending?api_key=b1d75cfaae6b922289a72c3eab080e3a`)
+    axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=b1d75cfaae6b922289a72c3eab080e3a')
       .then(response => {
         setTrendingMovies(response.data.results);
       })
@@ -20,9 +21,10 @@ function Home() {
       <ul>
         {trendingMovies.map(movie => (
           <li key={movie.id}>
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-            <h2>{movie.title}</h2>
-            <p>{movie.overview}</p>
+            <Link to={`/movies/${movie.id}`}>
+              <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+              <h2>{movie.title}</h2>
+            </Link>
           </li>
         ))}
       </ul>

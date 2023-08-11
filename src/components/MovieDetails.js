@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
-function MovieDetails(props) {
+
+import { useParams, Link } from 'react-router-dom';
+
+import Cast from './Cast';
+
+function MovieDetails() {
+  const { movieId } = useParams();
+
   const [movieDetails, setMovieDetails] = useState({});
-  const movieId = props.match.params.movieId;
 
   useEffect(() => {
-    axios.get(`/movies/get-movie-details?movieId=${movieId}&api_key=b1d75cfaae6b922289a72c3eab080e3a`)
+    axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=b1d75cfaae6b922289a72c3eab080e3a`)
       .then(response => {
         setMovieDetails(response.data);
       })
@@ -18,17 +23,16 @@ function MovieDetails(props) {
   return (
     <div>
       <h2>{movieDetails.title}</h2>
+      <img src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`} alt={movieDetails.title} />
       <p>{movieDetails.overview}</p>
-      <p>{movieDetails.genres}</p>
+      <p>
+        Genres: {movieDetails.genres && movieDetails.genres.map(genre => genre.name).join(', ')}
+      </p>
+      <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+      <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
     </div>
   );
 }
-MovieDetails.propTypes = {
-    match: PropTypes.shape({
-      params: PropTypes.shape({
-        movieId: PropTypes.string.isRequired
-      }).isRequired
-    }).isRequired
-  };
 
 export default MovieDetails;
+
