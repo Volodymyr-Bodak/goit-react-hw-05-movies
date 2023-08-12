@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { useParams } from 'react-router-dom';
-
-function Review(props) {
-  const [reviewData, setReview] = useState([]);
-  const { movieId } = useParams();
+function Reviews({ movieId }) {
+  const [reviewList, setReviewList] = useState([]);
 
   useEffect(() => {
-    axios.get(`/movies/get-movie-reviews?movieId=${movieId}&api_key=b1d75cfaae6b922289a72c3eab080e3a`)
+    axios
+      .get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=b1d75cfaae6b922289a72c3eab080e3a`)
       .then(response => {
-        setReview(response.data.results);
+        setReviewList(response.data.results);
       })
       .catch(error => {
         console.error(error);
@@ -20,12 +18,12 @@ function Review(props) {
   return (
     <div>
       <h2>Reviews</h2>
-      {reviewData.length > 0 ? (
+      {reviewList.length > 0 ? (
         <ul>
-          {reviewData.map(review => (
+          {reviewList.map(review => (
             <li key={review.id}>
-              <h3>{review.author}</h3>
               <p>{review.content}</p>
+              <p>Author: {review.author}</p>
             </li>
           ))}
         </ul>
@@ -36,4 +34,4 @@ function Review(props) {
   );
 }
 
-export default Review;
+export default Reviews;

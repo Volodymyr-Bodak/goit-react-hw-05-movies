@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 
-function Cast(props) {
+function Cast({ movieId }) {
   const [castList, setCast] = useState([]);
-  const { movieId } = useParams(); 
 
   useEffect(() => {
-    axios.get(`/movies/get-movie-credits?movieId=${movieId}&api_key=b1d75cfaae6b922289a72c3eab080e3a`)
+    axios
+      .get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=b1d75cfaae6b922289a72c3eab080e3a`)
       .then(response => {
         setCast(response.data.cast);
       })

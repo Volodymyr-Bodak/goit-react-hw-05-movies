@@ -17,12 +17,17 @@ function Home() {
 
   return (
     <div>
+      <div className="home-link">
+        <Link to="/">Go to Home</Link>
+      </div>
+      <div className="movielink">
+        <Link to="/movies">Movies</Link>
+      </div>
       <h1>Trending Movies</h1>
       <ul>
         {trendingMovies.map(movie => (
           <li key={movie.id}>
             <Link to={`/movies/${movie.id}`}>
-              <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
               <h2>{movie.title}</h2>
             </Link>
           </li>
