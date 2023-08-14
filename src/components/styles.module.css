@@ -2,33 +2,29 @@
     color: #ff6600; 
     font-size: 40px ; 
   }
-  /* styles.module.css */
-
-/* Styles for active links (both Home and Movies) */
+ 
 .activeLink {
-    color: #ff6600; /* Change to your desired active link color */
-    font-weight: bold;
-    /* Add more styling as needed */
+    color: #ff6600; 
+   
   }
   
-  /* Styles for the "Home" link */
+
   .homeLink a {
-    color: #333; /* Default color */
+    color: #333; 
     text-decoration: none;
-    transition: color 0.3s ease-in-out; /* Smooth transition */
+    transition: color 0.3s ease-in-out; 
   }
   
-  /* Styles for the active "Home" link */
+ 
   .homeLink .activeLink {
-    color: #ff6600; /* Change to your desired active Home link color */
+    color: #ff6600; 
   }
   
-  /* Styles for the active "Home" link on hover */
+
   .homeLink .activeLink:hover {
-    text-decoration: underline; /* Add an underline on hover */
-    /* Add more hover styles as needed */
+    text-decoration: underline; 
+   
   }
-  /* styles.module.css */
 .movie-details {
     padding: 20px;
   }
@@ -66,4 +62,47 @@
   .hide {
     display: none;
   }
-  
+  /* Movies.module.css */
+
+.container {
+  padding: 20px;
+}
+
+.navLink {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #007bff;
+  font-size: 18px;
+}
+
+.navLink.active {
+  color: #ff6600;
+}
+
+.searchBox {
+  margin-top: 20px;
+}
+
+.movieList {
+  list-style: none;
+  padding: 0;
+}
+
+.movieListItem {
+  margin-bottom: 20px;
+}
+
+.movieImage {
+  max-width: 200px;
+  height: auto;
+}
+
+.movieTitle {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.movieOverview {
+  font-size: 16px;
+  color: #666;
+}

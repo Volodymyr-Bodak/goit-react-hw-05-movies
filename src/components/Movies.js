@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import styles from 'components/styles.module.css'; 
 function Movies() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -38,26 +39,23 @@ function Movies() {
     navigate(`/movies?search=${newSearchQuery}`);
   };
 
-
   return (
-    <div>
+    <div className={styles.container}>
       <div>
-        <NavLink to="/" activeClassName="activelink">Home</NavLink>
-      </div>
-      <div>
-        <NavLink to="/goit-react-hw-05-movies/movies" activeClassName="activelink">Movies</NavLink>
+        <NavLink to="/" className={styles.navLink} activeClassName={styles.active}>Home</NavLink>
+        <NavLink to="/movies" className={styles.navLink} activeClassName={styles.active}>Movies</NavLink>
       </div>
       <h2>Search Movies</h2>
-      <form>
+      <form className={styles.searchBox}>
         <input type="text" value={searchQuery} onChange={handleSearch} placeholder="Search for a movie" />
       </form>
-      <ul>
+      <ul className={styles.movieList}>
         {moviesData.map(movie => (
-          <li key={movie.id}>
+          <li key={movie.id} className={styles.movieListItem}>
             <Link to={`/movies/${movie.id}`} state={{ search: searchQuery }}>
-              <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
-              <h3>{movie.title}</h3>
-              <p>{movie.overview}</p>
+              <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} className={styles.movieImage} />
+              <h3 className={styles.movieTitle}>{movie.title}</h3>
+              <p className={styles.movieOverview}>{movie.overview}</p>
             </Link>
           </li>
         ))}
@@ -65,6 +63,5 @@ function Movies() {
     </div>
   );
 }
-
 
 export default Movies;
