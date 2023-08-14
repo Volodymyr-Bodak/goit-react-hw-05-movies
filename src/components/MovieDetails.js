@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import Cast from './Cast'; 
 import Reviews from './Reviews'; 
+import styles from 'components/styles.module.css';
+import axios from 'axios';
 
 function MovieDetails() {
   const { movieId } = useParams();
+  const location = useLocation();
+  const searchQuery = new URLSearchParams(location.search).get('search');
 
   const [movieDetails, setMovieDetails] = useState({});
   const [userScore, setUserScore] = useState(null);
@@ -33,13 +36,23 @@ function MovieDetails() {
   };
 
   return (
-    <div>
-      <div className="home-link">
-        <Link to="/">Go to Home</Link>
+    <div className={styles['movie-details']}>
+      <div className={styles['go-back-link']}>
+        <Link
+          to={{
+            pathname: '/movies',
+            search: `?search=${searchQuery}`,
+          }}
+        >
+          Go back
+        </Link>
       </div>
-      <div className="movielink">
-        <Link to="/movies">Movies</Link>
+      
+      <div>
+        <Link to="/goit-react-hw-05-movies/"> Home</Link>
+        <Link to="/goit-react-hw-05-movies/movies"> Movies</Link>
       </div>
+      
       <h2>{movieDetails.title}</h2>
       <img src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`} alt={movieDetails.title} />
       <p>{movieDetails.overview}</p>
@@ -49,17 +62,17 @@ function MovieDetails() {
       {userScore !== null && (
         <p>User Score: {userScore}</p>
       )}
+      <div>
+        <Link to="#" onClick={toggleCastVisibility}>
+          {isCastVisible ? 'Hide Cast' : 'Show Cast'}
+        </Link>
 
-      <Link to="#" onClick={toggleCastVisibility}>
-        {isCastVisible ? 'Hide Cast' : 'Show Cast'}
-      </Link>
+        <Link to="#" onClick={toggleReviewsVisibility}>
+          {isReviewsVisible ? 'Hide Reviews' : 'Show Reviews'}
+        </Link>
+      </div>
 
       {isCastVisible && <Cast movieId={movieId} />}
-
-      <Link to="#" onClick={toggleReviewsVisibility}>
-        {isReviewsVisible ? 'Hide Reviews' : 'Show Reviews'}
-      </Link>
-
       {isReviewsVisible && <Reviews movieId={movieId} />}
     </div>
   );
