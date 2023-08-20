@@ -43,7 +43,7 @@ function Movies() {
       <form className={styles.searchBox}>
         <input type="text" value={searchQuery} onChange={handleSearch} placeholder="Search for a movie" />
       </form>
-      {moviesData.length > 0 && ( // Conditional rendering
+      {moviesData.length > 0 && (
         <ul className={styles.movieList}>
           {moviesData.map(movie => (
             <li key={movie.id} className={styles.movieListItem}>

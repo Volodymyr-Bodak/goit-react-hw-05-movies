@@ -3,8 +3,8 @@ import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Reviews from 'components/Reviews';
 import { Route, Routes, NavLink } from 'react-router-dom';
-import styles from 'components/MovieDetail/MovieDetail.module.css';
-import Cast from 'components/Cast/Cast';
+import styles from 'components/MovieDetail.module.css';
+import Cast from './Cast/Cast';
 
 function MovieDetails() {
   const { movieId } = useParams();
