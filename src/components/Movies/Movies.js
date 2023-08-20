@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import styles from 'components/Movies.module.css';
+import styles from 'components/Movies/Movies.module.css';
 
 function Movies() {
   const navigate = useNavigate();

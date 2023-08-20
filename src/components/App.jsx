@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NotFound from './NotFound';
 
 const Home = React.lazy(() => import('./Home/Home'));
-const Movies = React.lazy(() => import('./Movies'));
+const Movies = React.lazy(() => import('./Movies/Movies'));
 const MovieDetails = React.lazy(() => import('./MovieDetail/MovieDetails'));
 const Cast = React.lazy(() => import('./Cast/Cast'));
 const Reviews = React.lazy(() => import('./Reviews'));

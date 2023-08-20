@@ -1,7 +1,8 @@
+
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import styles from './Cast.module.css'; // Adjust the path to your CSS module
-
+import styles from './Cast.module.css'; 
 
 function Cast({ movieId }) {
   const [castList, setCast] = useState([]);
@@ -35,11 +36,10 @@ function Cast({ movieId }) {
           ))}
         </ul>
       ) : (
-        <p>No cast found.</p>
+        <p className={styles.notFound}>No cast found.</p>
       )}
     </div>
   );
 }
 
 export default Cast;
-
