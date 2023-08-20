@@ -1,0 +1,39 @@
+.castTitle {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .castList {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .castItem {
+    width: calc(33.33% - 20px);
+    margin: 0 10px 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .actorImage {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  
+  .actorName {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  
+  .actorCharacter {
+    font-size: 14px;
+    color: #888;
+  }
+  

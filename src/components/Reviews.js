@@ -8,12 +8,14 @@ function Reviews({ movieId }) {
     axios
       .get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=b1d75cfaae6b922289a72c3eab080e3a`)
       .then(response => {
+        console.log('API Response:', response.data);
         setReviewList(response.data.results);
       })
       .catch(error => {
-        console.error(error);
+        console.error('Error fetching reviews:', error);
       });
   }, [movieId]);
+  
 
   return (
     <div>

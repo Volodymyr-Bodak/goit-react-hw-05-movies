@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, NavLink } from 'react-router-dom';
-import s from 'components/styles.module.css'
+import s from 'components/Home/Home.module.css';
 
 function Home() {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -18,18 +18,16 @@ function Home() {
 
   return (
     <div>
-      <div className={`home-link ${s.homeLink}`}>
-        <NavLink to="/" activeClassName={s.activeLink} exact>Home</NavLink>
-      </div>
-      <div className={`movielink ${s.movieLink}`}>
-        <NavLink to="/movies" activeClassName={s.activeLink}>Movies</NavLink>
+      <div className={s.container}>
+        <NavLink to="/" className={` ${s.activeNavLink}`} activeClassName={s.active}>Home</NavLink>
+        <NavLink to="/movies" className={s.navLink} activeClassName={s.active}>Movies</NavLink>
       </div>
       <h1>Trending Movies</h1>
       <ul>
         {trendingMovies.map(movie => (
-          <li key={movie.id}>
+          <li key={movie.id} className= {s.item}>
             <Link to={`/movies/${movie.id}`}>
-              <h2>{movie.title}</h2>
+              <h2 className={s.title}>{movie.title}</h2>
             </Link>
           </li>
         ))}

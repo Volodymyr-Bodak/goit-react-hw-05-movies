@@ -106,3 +106,10 @@
   font-size: 16px;
   color: #666;
 }
+.activeNavLink {
+  color: #ff6600; 
+  margin-right: 20px;
+  text-decoration: none;
+ 
+  font-size: 18px;
+}

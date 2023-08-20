@@ -1,0 +1,103 @@
+.activelink {
+  color: #ff6600; 
+  font-size: 40px ; 
+}
+
+.activeNavLink {
+  color: #ff6600; 
+  margin-right: 20px;
+  text-decoration: none;
+ 
+  font-size: 18px;
+}
+
+
+.homeLink a {
+  color: #333; 
+  text-decoration: none;
+  transition: color 0.3s ease-in-out; 
+}
+
+
+.homeLink .activeLink {
+  color: #ff6600; 
+}
+
+
+.homeLink .activeLink:hover {
+  text-decoration: underline; 
+ 
+}
+.movie-details {
+  padding: 20px;
+}
+
+.movie-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.movie-poster {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.movie-overview {
+  margin-bottom: 20px;
+}
+
+.genres {
+  margin-bottom: 20px;
+}
+
+.user-score {
+  margin-bottom: 20px;
+}
+
+.link {
+  display: inline-block;
+  margin-right: 10px;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+
+.container {
+padding: 20px;
+}
+
+.navLink {
+margin-right: 20px;
+text-decoration: none;
+color: #007bff;
+font-size: 18px;
+}
+
+.navLink.active {
+color: #ff6600;
+}
+
+.searchBox {
+margin-top: 20px;
+}
+
+
+.item {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333;
+}

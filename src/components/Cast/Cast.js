@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import styles from './Cast.module.css'; // Adjust the path to your CSS module
+
 
 function Cast({ movieId }) {
   const [castList, setCast] = useState([]);
@@ -17,14 +19,18 @@ function Cast({ movieId }) {
 
   return (
     <div>
-      <h2>Cast</h2>
+      <h2 className={styles.castTitle}>Cast</h2>
       {castList.length > 0 ? (
-        <ul>
+        <ul className={styles.castList}>
           {castList.map(actor => (
-            <li key={actor.id}>
-              <img src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} alt={actor.name} />
-              <h3>{actor.name}</h3>
-              <p>{actor.character}</p>
+            <li key={actor.id} className={styles.castItem}>
+              <img
+                src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
+                alt={actor.name}
+                className={styles.actorImage}
+              />
+              <h3 className={styles.actorName}>{actor.name}</h3>
+              <p className={styles.actorCharacter}>{actor.character}</p>
             </li>
           ))}
         </ul>
@@ -36,3 +42,4 @@ function Cast({ movieId }) {
 }
 
 export default Cast;
+

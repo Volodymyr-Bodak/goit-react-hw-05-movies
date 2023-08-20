@@ -1,0 +1,110 @@
+.activelink {
+    color: #ff6600; 
+    font-size: 40px ; 
+  }
+ 
+.activeLink {
+    color: #ff6600; 
+   
+  }
+  
+
+  .homeLink a {
+    color: #333; 
+    text-decoration: none;
+    transition: color 0.3s ease-in-out; 
+  }
+  
+ 
+  .homeLink .activeLink {
+    color: #ff6600; 
+  }
+  
+
+  .homeLink .activeLink:hover {
+    text-decoration: underline; 
+   
+  }
+.movie-details {
+    padding: 20px;
+  }
+  
+  .movie-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .movie-poster {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .movie-overview {
+    margin-bottom: 20px;
+  }
+  
+  .genres {
+    margin-bottom: 20px;
+  }
+  
+  .user-score {
+    margin-bottom: 20px;
+  }
+  
+  .link {
+    display: inline-block;
+    margin-right: 10px;
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  .hide {
+    display: none;
+  }
+
+
+.container {
+  padding: 20px;
+}
+
+.navLink {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #007bff;
+  font-size: 18px;
+}
+
+.navLink.active {
+  color: #ff6600;
+}
+
+
+.movieListItem {
+  margin-bottom: 20px;
+}
+
+.movieImage {
+  max-width: 200px;
+  height: auto;
+}
+
+
+.noImage {
+    color: #ff0000;
+    font-size: 18px;
+  }
+  
+  .genresNotFound {
+    color: #888888; 
+    font-size: 16px;
+  }
+  .activeNavLink {
+    color: #ff6600; 
+    margin-right: 20px;
+    text-decoration: none;
+   
+    font-size: 18px;
+  }
+  
+  
