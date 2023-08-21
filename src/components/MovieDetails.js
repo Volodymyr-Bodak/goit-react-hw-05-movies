@@ -33,9 +33,9 @@ function MovieDetails() {
     setIsReviewsVisible(false);
 
     if (!isCastVisible) {
-      navigate(`./cast`, { replace: true });
+      navigate(`./cast`, { state: { ...location.state, isCastVisible: true } });
     } else {
-      navigate(`/movies/${movieId}`, { replace: true });
+      navigate(`/movies/${movieId}`, { state: { ...location.state, isCastVisible: false } });
     }
   };
 
@@ -44,9 +44,9 @@ function MovieDetails() {
     setIsCastVisible(false);
 
     if (!isReviewsVisible) {
-      navigate(`./reviews`, { replace: true });
+      navigate(`./reviews`, { state: { ...location.state, isReviewsVisible: true } });
     } else {
-      navigate(`/movies/${movieId}`, { replace: true });
+      navigate(`/movies/${movieId}`, { state: { ...location.state, isReviewsVisible: false } });
     }
   };
 
@@ -89,8 +89,8 @@ function MovieDetails() {
       </div>
 
       <Routes>
-        <Route path="cast" element={<Cast movieId={movieId} />} />
-        <Route path="reviews" element={<Reviews movieId={movieId} />} />
+        <Route path="cast" element={<Cast movieId={movieId} state={location.state} />} />
+        <Route path="reviews" element={<Reviews movieId={movieId} state={location.state} />} />
       </Routes>
     </div>
   );
